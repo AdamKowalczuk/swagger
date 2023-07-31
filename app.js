@@ -1,9 +1,11 @@
 const express = require("express");
 const serverless = require("serverless-http");
 const swaggerUI = require("swagger-ui-express");
+const YAML = require("yamljs");
 const swaggerDocument = YAML.load("./swagger.yaml"); // Load the Swagger YAML file
 const app = express();
-app.use("/swagger", swaggerUI.serve, swaggerUi.setup(swaggerDocument));
+
+app.use("/swagger", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
