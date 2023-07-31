@@ -3,10 +3,12 @@ info:
   version: 1.0.0
   title: Sample Product API
   description: An example API for managing products
+servers:
+  - url: https://pkcpwhzg9k.execute-api.eu-central-1.amazonaws.com/prod/
 schemes:
   - https
 paths:
-  /products:
+  /product:
     get:
       summary: Get all products
       description: Retrieve a list of all available products.
