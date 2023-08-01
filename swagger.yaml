@@ -30,7 +30,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Product"
+              type: object
+              properties:
+                name:
+                  type: string
+                price:
+                  type: number
+              required:
+                - name
+                - price
       responses:
         "201":
           description: Created
@@ -89,7 +97,7 @@ paths:
       summary: Update a product by ID
       description: Update an existing product's information by its unique ID.
       parameters:
-        - name: id
+        - name: productId
           in: path
           required: true
           description: ID of the product to update
@@ -101,14 +109,22 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Product" # Assuming you have a schema for the product
+              type: object
+              properties:
+                name:
+                  type: string
+                price:
+                  type: number
+              required:
+                - name
+                - price
       responses:
         "200":
           description: Successfully updated product
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Product" # Assuming you have a schema for the product
+                $ref: "#/components/schemas/Product"
         "404":
           description: Product not found
         "500":
