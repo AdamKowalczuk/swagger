@@ -38,8 +38,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Product"
+        "500":
+          description: Failed to perform operation
 
-  /products/{productId}:
+  /product/{productId}:
     get:
       summary: Get a product by ID
       description: Retrieve a specific product by its ID.
@@ -57,6 +59,8 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Product"
+        "500":
+          description: Failed to perform operation
     delete:
       summary: Delete a product by ID
       description: Delete a specific product by its ID.
@@ -79,6 +83,35 @@ paths:
                     type: string
                   body:
                     $ref: "#/components/schemas/Product"
+        "500":
+          description: Failed to perform operation
+    put:
+      summary: Update a product by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product to update
+          schema:
+            type: string
+      requestBody:
+        description: Updated product data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Product" # Assuming you have a schema for the product
+      responses:
+        "200":
+          description: Successfully updated product
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product" # Assuming you have a schema for the product
+        "404":
+          description: Product not found
+        "500":
+          description: Failed to perform operation
 
 components:
   schemas:

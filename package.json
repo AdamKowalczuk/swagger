@@ -7,13 +7,6 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node app.js"
     },
-    "keywords": [
-        "swagger-ui",
-        "aws-sam",
-        "aws-api-gateway",
-        "aws-lambda",
-        "node-js"
-    ],
     "author": "adam kowalczuk",
     "license": "MIT",
     "dependencies": {
