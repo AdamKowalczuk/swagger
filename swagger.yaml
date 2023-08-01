@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: Sample Product API
-  description: An example API for managing products
+  title: Product Management API
+  description: This API provides endpoints to manage products in an online store. It allows users to perform CRUD (Create, Read, Update, Delete) operations on product data.
 servers:
   - url: https://pkcpwhzg9k.execute-api.eu-central-1.amazonaws.com/prod/
 schemes:
@@ -11,7 +11,7 @@ paths:
   /product:
     get:
       summary: Get all products
-      description: Retrieve a list of all available products.
+      description: Retrieve a list of all available products in the store.
       responses:
         "200":
           description: OK
@@ -23,7 +23,7 @@ paths:
                   $ref: "#/components/schemas/Product"
     post:
       summary: Create a new product
-      description: Add a new product to the inventory.
+      description: Add a new product to the store's inventory.
       requestBody:
         description: Product details to add.
         required: true
@@ -44,7 +44,7 @@ paths:
   /product/{productId}:
     get:
       summary: Get a product by ID
-      description: Retrieve a specific product by its ID.
+      description: Retrieve detailed information about a specific product by its unique ID.
       parameters:
         - name: productId
           in: path
@@ -63,7 +63,7 @@ paths:
           description: Failed to perform operation
     delete:
       summary: Delete a product by ID
-      description: Delete a specific product by its ID.
+      description: Delete a product from the store's inventory by its unique ID.
       parameters:
         - name: productId
           in: path
@@ -87,6 +87,7 @@ paths:
           description: Failed to perform operation
     put:
       summary: Update a product by ID
+      description: Update an existing product's information by its unique ID.
       parameters:
         - name: id
           in: path
