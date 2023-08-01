@@ -125,6 +125,5 @@ components:
         price:
           type: number
       required:
-        - id
         - name
         - price
